@@ -1,0 +1,891 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+/* general */
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #fde6ed;
+    color: #333;
+    overflow-x: hidden;
+    font-family: "dico-typewriter", mono;
+    font-weight: 400;
+    font-style: normal;
+  }
+ 
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    font-family: "dico-typewriter", mono;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #eed1d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffeef2;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  footer {
+    background-color: #ffeef2;
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #eed1d9;
+    font-size: 12px;
+    color: #777;
+    margin-top: 0;
+    width: 100%;
+    font-family: "dico-typewriter", mono;
+  }
+
+  .logo {
+    font-family: 'Courier New', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .menu-toggle {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+   } 
+
+
+/* inicio */
+
+  .slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slides {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+  }
+  
+  .slide.active {
+    opacity: 1;
+    z-index: 1;
+  }  
+
+  .slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    z-index: 2;
+  }
+  
+  .slider-controls span {
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgba(197, 197, 197, 0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-controls span:hover {
+    background-color: rgba(0,0,0,0.7);
+  }  
+  
+  .slider-dots {
+    position: relative;
+    top: -10px;
+  }  
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #f69db3;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 0.5px;
+  }
+  
+  section {
+    width: 100%;
+    padding: 0 0 2rem 0;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .img-section {
+    width: 100%;
+    min-height: 200px;
+    border: 1px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  
+  .novedades {
+    margin: 3rem 0;
+  }
+
+  .novedades h2 {
+    font-weight: normal;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .novedades button {
+    padding: 0.7rem 1.4rem;
+    border: 1px solid #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 20px;
+    font-family: "dico-typewriter", mono;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .logo img {
+    height: 60px; 
+    object-fit: contain;
+  }
+ 
+  .cajacontenedora {
+    display: flex;flex-flow: wrap;justify-content: center;
+  }
+
+  .img-section img { 
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+  }
+
+  .extra-margin {
+    margin-top: 3rem;
+  }
+
+  .img-section:first-of-type {
+    margin-top: 0; 
+    padding-top: 0; 
+  }
+
+  .img-section:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .boton-novedades {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid #f69db3;
+    background-color: #fcd6e3;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.4s ease;
+    font-family: "dico-typewriter", mono;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .boton-novedades:hover {
+    background-color: #f69db3;
+    transform: scale(1.30)
+  }
+
+
+  /* seccion novedades */
+  #novedades-detalle h2 {
+    font-family: "dico-typewriter", mono;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  #novedades-detalle {
+    padding-top: 1rem;
+    margin-top: 0;
+  }
+  
+  .novedades {
+    font-family: "dico-typewriter", mono;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+
+/* seccion discografia */
+
+ .discografia {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.discografia h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-family: "dico-typewriter", mono;
+}
+
+.marco-disco img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.marco-disco {
+  width: 340px;
+  height: 340px;
+  background-color: #fff8fb;
+  padding: 12px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.marco-disco img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.grid-discos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 35px;
+  row-gap: 70px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+.grid-discos div {
+  background-color: #fff8fb;
+  padding: 12px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 40px auto;
+}
+
+.grid-discos img {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* seccion cine y television */
+
+.cine-television h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: "dico-typewriter", mono;
+}
+
+.peliculas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.fila {
+  width: 100%;
+  max-width: 600px; 
+  min-height: 300px; 
+  margin: 0 auto;
+  background-color: #fff8fb;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.fila img {
+  width: 300px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.fila .texto {
+  flex: 1;
+  font-size: 1.5rem;
+  max-width: 100%;
+  text-align: center;
+  color: #333;
+  padding: 0 1rem;
+}
+
+.fila.reverse {
+  flex-direction: row-reverse;
+}
+
+.fila.reverse .texto {
+  text-align: center;
+}
+
+
+/* seccion fragancias */
+
+.fragancias {
+  padding: 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fragancias h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: lowercase;
+  font-family: "dico-typewriter", mono;
+}
+
+.fragancias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.fragancia {
+  background-color: #fff8fb;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fragancia img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.fragancia p {
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+
+/* seccion rem beauty */
+
+.menu-toggle {
+  display: none;
+}
+
+section.rem {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fde6ed;
+  text-align: center;
+}
+
+.rem img {
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.rem h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.rem p {
+  line-height: 1.7;
+  margin-top: 30px;
+  color: 333;
+  white-space: pre-line;
+  font-size: 1.1rem;
+  text-align: center
+}
+
+
+/* seccion about */
+
+#about-ariana {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+#about-ariana .imagen {
+  float: right;
+  width: 40%;
+  max-width: 400px;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+#about-ariana .imagen img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+#about-ariana .texto h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#about-ariana .texto p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+#about-ariana::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* seccion subscribe */
+
+#fan-membership {
+  background-image: url("arisubscribe.jpg");
+  background-repeat: repeat;
+  background-size: 250px;
+  background-position: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+#fan-membership::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); 
+  z-index: -1; 
+}
+
+#fan-membership h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+#fan-membership h2 {
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+#fan-membership p,
+#fan-membership ul {
+  margin-bottom: 1rem;
+  max-width: 700px;
+  width: 100%;
+  color: #333;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+#fan-membership ul {
+  list-style: none;
+  padding: 0;
+}
+
+#fan-membership li {
+  margin-bottom: 0.5rem;
+}
+
+#fan-membership button {
+  font-family: "dico-typewriter", mono;
+  text-transform: lowercase;
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #fcd6e3;
+  border: 1px solid #f69db3;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+#fan-membership button:hover {
+  background-color: #f69db3;
+  transform: scale(1.30);
+}
+
+
+
+ /* RESPONSIVE */
+
+ /*general*/
+
+  @media (min-width: 768px) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+  
+    .logo {
+      margin-bottom: 0;
+    }
+  
+    .nav-links {
+      gap: 2rem;
+    }
+
+    .novedades h2 {
+      font-size: 1.5rem;
+    }
+  
+    .novedades button {
+      font-size: 1.1rem;
+    }
+  }
+
+
+  /* inicio */ 
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .slider {
+      max-width: 100%;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    header {
+      position: relative;
+    }
+  
+    .logo {
+      font-size: 1.5rem;
+    }
+  
+    .logo img {
+      height: 45px;
+    }
+  
+    body {
+      overflow-x: hidden;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .slider {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .slides {
+      aspect-ratio: 16 / 9;
+      height: auto;
+    }
+  
+    .slider-controls {
+      top: 45%;
+      padding: 0 0.5rem;
+    }
+
+    .slider-controls span {
+      font-size: 1.5rem;
+      padding: 0.3rem 0.6rem;
+    }
+  
+    .slider-dots {
+      margin-top: 0.5rem;
+      top: 0;
+    }
+  
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 3px;
+    }
+  }  
+    
+
+    /* seccion discografia */
+
+    @media (max-width: 600px) {
+      .grid-discos {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .marco-disco {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+        margin: 0 auto 40px auto;
+      }
+    
+      .marco-disco img {
+        width: 100%;
+        height: auto;
+      }
+    
+      .grid-discos div {
+        width: 100%;
+        max-width: 240px;
+        height: 240px;
+        margin: 0 auto;
+      }
+    
+      .grid-discos img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
+      /*seccion cine y television */
+
+      @media (max-width: 1024px) {
+        .fila {
+          flex-direction: column;
+          max-width: 90%;
+          padding: 1.5rem;
+        }
+      
+        .fila.reverse {
+          flex-direction: column;
+        }
+      
+        .fila img {
+          width: 100%;
+          max-width: 320px;
+        }
+      
+        .fila .texto {
+          font-size: 1.3rem;
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .fila {
+          padding: 1rem;
+          max-width: 95%;
+        }
+      
+        .fila img {
+          max-width: 280px;
+        }
+      
+        .fila .texto {
+          font-size: 1.1rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .fila img {
+          max-width: 240px;
+        }
+      
+        .fila .texto {
+          font-size: 1rem;
+          padding: 0 10px;
+        }
+      
+        .cine-television h1 {
+          font-size: 1.4rem;
+        }
+      
+        .peliculas-lista {
+          gap: 1rem;
+        }
+      }
+
+
+      /*seccion fragancias */
+
+      @media (max-width: 768px) {
+        .fragancias {
+          padding: 1.5rem 1rem;
+        }
+      
+        .fragancias h1 {
+          font-size: 2.5rem;
+        }
+      
+        .fragancia p {
+          font-size: 1rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .fragancias h1 {
+          font-size: 1.4rem;
+        }
+      
+        .fragancia img {
+          max-width: 150px;
+        }
+      
+        .fragancia p {
+          font-size: 0.95rem;
+        }
+      }
+
+        /*seccion about ariana*/
+
+        @media (max-width: 768px) {
+          #about-ariana {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            text-align: center;
+          }
+        
+          #about-ariana .imagen {
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem auto 0;
+          }
+        
+          #about-ariana .texto {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+        
+          #about-ariana h1,
+          #about-ariana p {
+            text-align: center;
+          }
+        }
+        
+          
+  

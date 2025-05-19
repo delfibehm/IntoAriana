@@ -250,7 +250,34 @@
   }
 
 
+       /*anuncio*/
+      /* Contenedor del anuncio */
+      .ad-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 2rem auto;
+        box-sizing: border-box;
+      }
+      
+      /* Iframe por defecto: desktop */
+      .ad-iframe {
+        width: 728px;
+        height: 90px;
+        max-width: 100%;
+        border: none;
+      }
+      
+      @media (max-width: 727px) {
+        .ad-iframe {
+          max-width: 300px;
+          height: 600px;
+        }
+      }
+
+
   /* seccion novedades */
+
   #novedades-detalle h2 {
     font-family: "dico-typewriter", mono;
     text-align: center;
@@ -560,7 +587,6 @@ section.rem {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   position: relative;
   z-index: 1;
 }
@@ -606,7 +632,7 @@ section.rem {
   margin-bottom: 0.5rem;
 }
 
-#fan-membership button {
+#fan-membership a {
   font-family: "dico-typewriter", mono;
   text-transform: lowercase;
   margin-top: 2rem;
@@ -622,14 +648,72 @@ section.rem {
   transition: 0.3s ease;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 }
 
-#fan-membership button:hover {
+#fan-membership a:hover {
   background-color: #f69db3;
   transform: scale(1.30);
 }
 
 
+/* form */
+
+#form-ariana h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+#form-group {
+  margin-bottom: 1rem;
+  max-width: 700px;
+  width: 100%;
+  color: #333;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#form-ariana {
+  background-image: url("arisubscribe.jpg");
+  background-repeat: repeat;
+  background-size: 250px;
+  background-position: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+#form-ariana::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); 
+  z-index: -1; 
+}
 
  /* RESPONSIVE */
 

@@ -29,10 +29,9 @@
       </header>
 
       <main>
-
         <section id="form-ariana">
             <h1>completa con tus datos</h1>
-            <form action="#" method="post">
+            <form id="ariana-form">
           <div class="form-group">
             <label for="nombre">Nombre completo</label>
             <input
@@ -55,10 +54,9 @@
             />
           </div>
         
-          <button type="submit" class="boton-novedades">Enviar</button>
+          <input type="submit" class="boton-novedades" value="Enviar">
         </form>
         </section>
-        
       </main>
 
       <footer>
@@ -70,8 +68,17 @@
              const nav = document.querySelector('.nav-links');
              nav.classList.toggle('active');
            }
+
+           document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('ariana-form');
+            form.addEventListener('submit', e => {
+              e.preventDefault();             
+              alert('¡Tus datos han sido enviados! 🎉');
+            form.reset();
+          });
+         });
          </script>
-       
+
      </body>
      </html>
 

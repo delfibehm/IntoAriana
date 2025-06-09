@@ -7,6 +7,33 @@
 
 /* general */
 
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 0.5px;
+    padding: 0.25 0.5em;
+    border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #f69db3;
+  }
+  
+  .nav-links a.active {
+    color: #f69db3;
+  }
+
   html, body {
     width: 100%;
     height: 100%;
@@ -35,6 +62,8 @@
     background-color: #ffeef2;
     margin-bottom: 0;
     padding-bottom: 0;
+    position: relative;
+    z-index: 1000;
   }
 
   footer {
@@ -140,21 +169,6 @@
   
   .dot.active {
     background-color: #f69db3;
-  }
-  
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-    text-transform: lowercase;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    letter-spacing: 0.5px;
   }
   
   section {
@@ -689,6 +703,7 @@ section.rem {
 }
 
 #form-ariana {
+  min-height: 100vh;
   background-image: url("arisubscribe.jpg");
   background-repeat: repeat;
   background-size: 250px;
@@ -721,9 +736,12 @@ section.rem {
 
   @media (min-width: 768px) {
     header {
+      display: flex;
+      position: relative;
       flex-direction: row;
       justify-content: space-between;
-      padding: 1rem 2rem;
+      align-items: center;
+      position: relative;
     }
   
     .logo {
@@ -744,14 +762,31 @@ section.rem {
   }
 
 
-  /* inicio */ 
+  /* general */ 
 
   @media (max-width: 768px) {
+    .logo {
+      order: 0;
+    }
+
+    .menu-toggle {
+      order: 1;
+      display: block;
+      cursor: pointer;
+    }
+
     .nav-links {
-      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #ffeef2;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
       flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
+      padding: 0 1rem;
+      text-align: right;
+      z-index: 1001;
     }
 
     .slider {
@@ -760,18 +795,15 @@ section.rem {
   
     .nav-links.active {
       display: flex;
-    }
-  
-    .menu-toggle {
-      display: block;
+      max-height: 300px;
     }
   
     header {
+      display: flex;
       position: relative;
-    }
-  
-    .logo {
-      font-size: 1.5rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
   
     .logo img {

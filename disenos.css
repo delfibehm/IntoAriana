@@ -263,9 +263,13 @@
     transform: scale(1.30)
   }
 
+  .footer-boton {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
 
        /*anuncio*/
-      /* Contenedor del anuncio */
+
       .ad-container {
         width: 100%;
         display: flex;
@@ -274,7 +278,6 @@
         box-sizing: border-box;
       }
       
-      /* Iframe por defecto: desktop */
       .ad-iframe {
         width: 728px;
         height: 90px;
@@ -730,6 +733,7 @@ section.rem {
   z-index: -1; 
 }
 
+
  /* RESPONSIVE */
 
  /*general*/
@@ -1002,6 +1006,3 @@ section.rem {
             text-align: center;
           }
         }
-        
-          
-  

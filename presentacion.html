@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación Into Ariana</title>
+  <link rel="stylesheet" href="csspresentacion.css">
+  <link rel="stylesheet" href="https://use.typekit.net/gtt4fyd.css">
+</head>
+
+<body>
+
+  <div id="presentation">
+    <!-- 1 -->
+    <div class="slide active">
+      <img src="logo posta.PNG" alt="Logo Into Ariana" class="slide-logo">
+      <p class="slide-caption">
+        Alumno: Delfina Behm Hadad<br>
+        Profesor: Wenceslao Zavala<br>
+        Materia: Contenidos y Creatividad I
+      </p>
+    </div>
+
+    <!-- 2 -->
+    <div class="slide">
+        <h2>La página</h2>
+        <div class="content-wrapper">
+          <ul>
+            <li>♡ Público objetivo: fans de Ariana Grande</li>
+            <li>♡ Material informativo, web estilo "wiki"</li>
+            <li>♡ Interfaz sencilla y fácil de navegar</li>
+            <li>♡ Estética inspirada en la marca y paleta de la artista</li>
+            <li>♡ Presupuesto: 50 USD</li>
+          </ul>
+          <div class="slide-image">
+            <img src="arianapresentacion1.jpg">
+          </div>
+        </div>
+      </div>      
+
+    <!-- 3 -->
+    <div class="slide">
+      <h2>Mapa de sitio</h2>
+      <div class="slide-content">
+        <img src="mapadesitio.png" alt="Mapa escritorio" class="img-escritorio centrada">
+        <img src="mapadesitio768.png" alt="Mapa mobile" class="img-mobile centrada">
+      </div>
+    </div>
+    
+    <!-- 4 -->
+    <div class="slide">
+      <h2>Wireframes - escritorio</h2>
+      <div class="slide-content">
+        <img src="wireframesescritorio.png" alt="Captura escritorio" class="img-escritorio centrada">
+        <img src="wireframesescritorio768.png" alt="Captura escritorio 768" class="img-mobile centrada">
+      </div>
+    </div>
+    
+    <!-- 5 -->
+    <div class="slide">
+      <h2>Wireframes - mobile</h2>
+      <div class="slide-content">
+        <img src="wireframesmobile.png" alt="Wireframe mobile escritorio" class="img-escritorio centrada">
+        <img src="wireframesmobile768.png" alt="Wireframe mobile celular" class="img-mobile centrada">
+      </div>
+    </div>
+    
+    <!-- 6 -->
+    <div class="slide">
+      <h2>Página de inicio — escritorio</h2>
+      <div class="slide-content">
+        <img src="escritoriomockup.png" alt="Captura escritorio" class="img-slide6">
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="slide">
+      <h2>Página de inicio — mobile</h2>
+      <div class="slide-content">
+        <img src="mobilemockup.png" alt="Captura móvil" class="img-slide7">
+        </div>
+      </div>
+
+    <!-- 8 -->
+    <div class="slide slide-final">
+      <button onclick="location.href='index.html'" class="boton-novedades">IR A LA PÁGINA</button>
+    </div>
+
+    <!-- controles -->
+    <button id="prev" class="nav-arrow">❮</button>
+    <button id="next" class="nav-arrow">❯</button>
+    <div id="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+      <span class="dot" data-index="5"></span>
+      <span class="dot" data-index="6"></span>
+      <span class="dot" data-index="7"></span>
+      <span class="dot" data-index="8"></span>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const slides = document.querySelectorAll('.slide');
+      const dots   = document.querySelectorAll('.dot');
+      let current  = 0;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      document.getElementById('prev').onclick = () => goTo(current - 1);
+      document.getElementById('next').onclick = () => goTo(current + 1);
+      dots.forEach(dot => dot.onclick = () => goTo(+dot.dataset.index));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+    })();
+  </script>
+
+</body>
+</html>
